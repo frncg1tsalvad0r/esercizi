@@ -104,8 +104,29 @@ public class Mensola {
 
     /**
      * Ritorna i riferimenti ai libri nella mensola
+     * @return Array di libri con valori null dove non ci sono libri
      */
     public Libro[] getLibri() {
         return libri;
     }
+
+    /**
+     * Ritorna un array di riferimenti a libro grande 
+     * quanto il numero di libri presenti nella mensola
+     * @return Libro[] array di libri presenti
+     */
+    public Libro[] getLibriPresenti() {
+        int n = this.getNumLibri();
+        Libro[] presenti = new Libro[n];
+        int j = 0;
+        for (int i = 0; i < this.libri.length; i++) {
+            if(libri[i] != null) {
+                presenti[j] = this.libri[i];
+                j++;
+            }
+        }
+        return presenti;
+
+    }
+
 }
