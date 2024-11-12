@@ -40,7 +40,7 @@ public class Mensola {
      * Inserisco un libro nella posizione indicata
      * @param Libro da inserire
      * @param int posizione da inserire
-     * @return -1 posizione non valida, -2 posizione occupata, >0 posizione in cui 
+     * @return -1 posizione non valida, -2 posizione occupata, >=0 posizione in cui 
      * viene inserito
      */
     public int setLibro(Libro libro, int posizione) {
