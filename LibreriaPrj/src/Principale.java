@@ -12,7 +12,7 @@ public class Principale {
 
         System.out.println("Inserisci il numero di pagine");
         int numeroPagine = sc.nextInt();
-        sc.nextLine(); // Togli il ritono a capo che era rimasto dentro
+        sc.nextLine(); // Toglie il ritono a capo che era rimasto dentro
         System.out.println("Inserisci il titolo");
         String titolo = sc.nextLine();
         System.out.println("Inserisci il autore");
