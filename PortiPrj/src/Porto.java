@@ -20,6 +20,8 @@ public class Porto {
      * @return la posizione della barca inserita e -1 se errore
      */
     public int assegnaPostoAutomatico(Barca barca){
+
+        // Le barche a vela vanno dalla posizione 30 in poi
         if(barca.getTipologia() == Barca.VELA) {
             for(int i = 30; i < barche.length; i++) {
                 if(barche[i] == null) {
@@ -30,7 +32,9 @@ public class Porto {
             }
             return -1;
         }
-        if(barca.getLunghezza() > 10){
+
+        // Guardo se è una barca più lunga di 10 m
+        if(barca.getLunghezza() >= 10){
             for(int i = 20; i < barche.length; i++) {
                 if(barche[i] == null) {
                     // Trovato un buco e posso inserire una barca
@@ -59,33 +63,36 @@ public class Porto {
      * @return valore di ritorno.
      */
     public int assegnaPostoFisso(Barca barca, int posizione){
+        // Le barche a vela vanno dalla posizione 30 in poi
         if(barca.getTipologia() == Barca.VELA) {
-            for(int i = 30; i < barche.length; i++) {
-                if(barche[i] == null) {
+            if(posizione >= 30 && posizione < barche.length) {
+                if(barche[posizione] == null) {
                     // Trovato un buco e posso inserire una barca
-                    barche[i] = barca;
-                    return i;
+                    barche[posizione] = barca;
+                    return posizione;
                 }
             }
             return -1;
         }
-        if(barca.getLunghezza() > 10){
-            for(int i = 20; i < barche.length; i++) {
-                if(barche[i] == null) {
+
+         // Guardo se è una barca più lunga di 10 m che vanno dopo la posizione 20
+        if(barca.getLunghezza() >= 10){
+            if(posizione >= 20 && posizione <= barche.length) {
+                if(barche[posizione] == null) {
                     // Trovato un buco e posso inserire una barca
-                    barche[i] = barca;
-                    return i;
+                    barche[posizione] = barca;
+                    return posizione;
                 }
             }
             return -1;
         }
         // Sono sicuro che non sono barche a vela o barche 
         // più lunghe di 10m
-        for(int i = 0; i < barche.length; i++) {
-            if(barche[i] == null) {
+        if(posizione < barche.length) {
+            if(barche[posizione] == null) {
                 // Trovato un buco e posso inserire una barca
-                barche[i] = barca;
-                return i;
+                barche[posizione] = barca;
+                return posizione;
             }
         }
         return -1;
