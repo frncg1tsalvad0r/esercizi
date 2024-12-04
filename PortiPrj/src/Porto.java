@@ -52,6 +52,46 @@ public class Porto {
         return -1;
     }
 
+    /**
+     * 
+     * @param barca
+     * @param posizione (valore negativo se errore)
+     * @return valore di ritorno.
+     */
+    public int assegnaPostoFisso(Barca barca, int posizione){
+        if(barca.getTipologia() == Barca.VELA) {
+            for(int i = 30; i < barche.length; i++) {
+                if(barche[i] == null) {
+                    // Trovato un buco e posso inserire una barca
+                    barche[i] = barca;
+                    return i;
+                }
+            }
+            return -1;
+        }
+        if(barca.getLunghezza() > 10){
+            for(int i = 20; i < barche.length; i++) {
+                if(barche[i] == null) {
+                    // Trovato un buco e posso inserire una barca
+                    barche[i] = barca;
+                    return i;
+                }
+            }
+            return -1;
+        }
+        // Sono sicuro che non sono barche a vela o barche 
+        // più lunghe di 10m
+        for(int i = 0; i < barche.length; i++) {
+            if(barche[i] == null) {
+                // Trovato un buco e posso inserire una barca
+                barche[i] = barca;
+                return i;
+            }
+        }
+        return -1;
+
+    }
+    
     // Stampa del porto
     public void stampaSituazionePorto() {
        
