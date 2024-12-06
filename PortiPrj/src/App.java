@@ -117,6 +117,7 @@ public class App {
         System.out.println("1) VISUALIZZA PORTO");
         System.out.println("2) INSERISCI BARCA IN AUTOMATICO");
         System.out.println("3) INSERISCI BARCA IN POSIZIONE SPECIFICATA");
+        System.out.println("4) RIMUOVI BARCA DALLA POSIZIONE SPECIFICATA");
         System.out.println("*******************************************");
     }
 
@@ -216,6 +217,17 @@ public class App {
                     System.out.println("Barca inserita con successo");
                 } else {
                     System.out.println("Impossibile inserire la barca. Posto non disponibile");
+                }
+            } else if(scelta == 4) {
+                // Rimuovo la barca dalla posizione specificata
+                System.out.println("Inserisci la posizione della barca nel porto ");
+                int posizione = App.leggiInt(sc);
+                Barca b = porto.uscitaBarca(posizione);
+                if(b != null) {
+                    System.out.println("La barca rimossa è la seguente");
+                    System.out.println(b);
+                } else {
+                    System.out.println("La barca non esiste nella posizione indicata: " + posizione);
                 }
             }
 

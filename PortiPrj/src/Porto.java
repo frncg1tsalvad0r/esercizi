@@ -121,4 +121,34 @@ public class Porto {
         }
         System.out.println();
     }
+
+    /**
+     * metodo che permette di far uscire la barca (dal porto) dal posto 
+     * specificato e ritorna la barca rimossa.
+     * @param posizione della barca da rimuovere
+     * @return la barca o null se la barca non è presente nella posizione indicata
+     */
+    public Barca uscitaBarca(int posizione) {
+        Barca b = this.barche[posizione];
+        this.barche[posizione] = null;
+        return b;
+    }
+
+    /**
+     * metodo che permette di controllare se la barca è assegnabile ad un posto 
+     * barca libero. Ritorna:
+     * il numero del posto barca assegnabile.
+     * -1 se non è possibile assegnare alcun posto barca.
+     * @return la posizione del posto libero o -1 se errore
+     */
+    public int checkLibero(int posizione) {
+        try{
+            if(this.barche[posizione] == null) {
+                return posizione;
+            }
+        } catch(Exception e) {
+            return -1;
+        }
+        return -1;
+    }
 }
