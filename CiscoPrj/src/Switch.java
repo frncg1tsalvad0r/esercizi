@@ -7,9 +7,14 @@ public class Switch {
     double prezzo;
     LocalDate dataDiAcquisto;
     int anniDiGaranzia;
-
-    
-    
+  
+    /**
+     * Costruttore semplice
+     * @param modello
+     * @param prezzo
+     * @param dataDiAcquisto
+     * @param anniDiGaranzia
+     */ 
     public Switch(String modello, double prezzo, LocalDate dataDiAcquisto, int anniDiGaranzia) {
         this.modello = modello;
         this.prezzo = prezzo;
@@ -17,6 +22,9 @@ public class Switch {
         this.anniDiGaranzia = anniDiGaranzia;
     }
 
+    /**
+     * Getter e setter
+     */
     public String getModello() {
         return modello;
     }
@@ -47,6 +55,10 @@ public class Switch {
         this.anniDiGaranzia = anniDiGaranzia;
     }
 
+    /**
+     * Metodo toString
+     * @return String la stringa descrittiva
+     */
     @Override
     public String toString() {
         return "Switch [modello=" + modello + ", prezzo=" + prezzo + ", dataDiAcquisto=" + dataDiAcquisto
