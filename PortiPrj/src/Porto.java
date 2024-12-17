@@ -1,3 +1,8 @@
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.time.LocalDate;
+
 public class Porto {
 
     private Barca[] barche;
@@ -122,6 +127,19 @@ public class Porto {
         System.out.println();
     }
 
+    // Stampa la lista delle barch
+    public void stampaListaBarche() {
+        System.out.println("***************************");
+        System.out.println("**** LISTA BARCHE     *****");
+        System.out.println("***************************");
+        for(int i = 0; i < this.barche.length; i++) {
+            if(this.barche[i] != null) {
+                System.out.println("POS: " + i + this.barche[i].toString());
+            }
+        }
+        System.out.println();
+    }
+    
     /**
      * metodo che permette di far uscire la barca (dal porto) dal posto 
      * specificato e ritorna la barca rimossa.
@@ -151,4 +169,36 @@ public class Porto {
         }
         return -1;
     }
+
+    public void salvaSuFile() {
+            try (// Salva su file porto.por     
+            FileOutputStream fos = new FileOutputStream("porto.txt")) {
+                PrintStream fps = new PrintStream(fos); 
+                for(int i = 0; i < barche.length; i++) {
+                    
+ 
+                    if(barche[i] != null) {
+                        fps.print(barche[i].getNome());
+                        fps.print(";");
+                        fps.print(barche[i].getNazionalita());
+                        fps.print(";");
+                        fps.print(barche[i].getLunghezza());
+                        fps.print(";");
+                        fps.print(barche[i].getStazza());
+                        fps.print(";");
+                        fps.print(barche[i].getTipologia());
+                        fps.print(";");
+                        fps.print(barche[i].getDataOrmeggio());
+                        fps.print(";");
+                        fps.println();
+                        
+                    }
+                }
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+    }
+    
+                
 }

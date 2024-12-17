@@ -1,3 +1,5 @@
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -118,6 +120,9 @@ public class App {
         System.out.println("2) INSERISCI BARCA IN AUTOMATICO");
         System.out.println("3) INSERISCI BARCA IN POSIZIONE SPECIFICATA");
         System.out.println("4) RIMUOVI BARCA DALLA POSIZIONE SPECIFICATA");
+        System.out.println("5) LISTA BARCHE");
+        System.out.println("10) SALVA SU FILE");
+        System.out.println("11) CARICA DA FILE");
         System.out.println("*******************************************");
     }
 
@@ -229,7 +234,18 @@ public class App {
                 } else {
                     System.out.println("La barca non esiste nella posizione indicata: " + posizione);
                 }
+            }  else if(scelta == 5) {
+                // Stampa lista barche nel porto
+                porto.stampaListaBarche();
+                
+            } else if(scelta == 10) {
+                
+                porto.salvaSuFile();
+
+            } else if(scelta == 11) {
+                // Salva su file porto.por
             }
+
 
         }
     }        
