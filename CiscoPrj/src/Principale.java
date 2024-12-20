@@ -3,7 +3,7 @@ import java.time.LocalDate;
 /**
  * Esercizio che gestisce un magazzino di switch di telecomunicazione
  */
-public class App {
+public class Principale {
     public static void main(String[] args) throws Exception {
         APCisco apCisco = new APCisco(30);
         Switch s1 = new Switch("2960", 1200, LocalDate.of(2024, 10, 10), 3);
@@ -17,6 +17,10 @@ public class App {
         apCisco.aggiungiSwitchInPosizione(s3, 5);
         apCisco.aggiungiSwitchInPosizione(s4, 6);
         apCisco.aggiungiSwitchInPosizione(s5, 7);
+
+        System.out.println(apCisco.listaSwitch());
+        System.out.println("-------------------");
+
 
         System.out.println(apCisco.listaDaModello("2960"));
         System.out.println("-------------------");

@@ -92,6 +92,24 @@ public class APCisco {
         }
     }
 
+     /**
+     * Ritorna una stringa con la lista di tutti gli switch
+     * La stringa
+     * 
+     * @return
+     */
+    public String listaSwitch() {
+        String lista = "";
+
+        for (int i = 0; i < switches.length; i++) {
+            if(this.switches[i] != null) {
+                lista += this.switches[i].toString();
+                lista += "\n";
+            }
+        }
+        return lista;
+    }
+
     /**
      * Restituisce lo switch che si trova nella posizione indicata
      * 
@@ -141,9 +159,10 @@ public class APCisco {
             if (this.switches[i] != null &&
                     this.switches[i].dataDiAcquisto.plusYears(this.switches[i].getAnniDiGaranzia())
                             .isAfter(LocalDate.now())) {
-                lista += "Switch: " + this.switches[i].getDataDiAcquisto() + " "
-                        + this.switches[i].getModello() + " "
-                        + this.switches[i].getPrezzo() + "\n";
+                lista += "Switch: Data acquisto:" + this.switches[i].getDataDiAcquisto() + " "
+                        + "Pos:" + i
+                        + " Modello: " + this.switches[i].getModello() + " " 
+                        + " Prezzo: " + this.switches[i].getPrezzo() + "\n";
             }
 
         }
