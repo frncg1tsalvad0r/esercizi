@@ -25,6 +25,7 @@ public class Principale {
         System.out.println(apCisco.listaDaModello("2960"));
         System.out.println("-------------------");
         System.out.println(apCisco.listaOggettiInGaranzia());
+        apCisco.salvasuFile();
 
     }
 }

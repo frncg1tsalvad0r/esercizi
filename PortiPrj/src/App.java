@@ -1,5 +1,3 @@
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 import java.time.LocalDate;
 import java.util.Scanner;
 

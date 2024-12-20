@@ -1,3 +1,9 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.time.LocalDate;
 
 /**
@@ -167,5 +173,50 @@ public class APCisco {
 
         }
         return lista;
+    }
+
+    /**
+     * Salva i dati su file in formati CSV
+     */
+    public void salvasuFile() {
+        File f = new File("apcisco.csv");
+
+        try {
+
+           // FileOutputStream fos = new FileOutputStream("apcisco.csv");
+            FileOutputStream fos = new FileOutputStream(f);
+            PrintStream ps = new PrintStream(fos);
+
+            for(int i = 0; i < this.switches.length; i++) {
+                if(switches[i] != null) {
+                    String riga = "";
+                    riga = i + "," +
+                            switches[i].getModello()+ "," +
+                          switches[i].getPrezzo() + "," +
+                          switches[i].getDataDiAcquisto() + "," +
+                          switches[i].getAnniDiGaranzia();
+                    ps.println(riga);
+
+                }
+            }
+            
+
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
+    public void caricaDaFile() {
+        File f = new File("apcisco.csv");
+        try {
+            FileInputStream fis = new FileInputStream(f);
+            
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 }
