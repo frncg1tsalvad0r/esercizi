@@ -1,8 +1,11 @@
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.time.LocalDate;
 
@@ -213,6 +216,7 @@ public class APCisco {
         File f = new File("apcisco.csv");
         try {
             FileInputStream fis = new FileInputStream(f);
+            InputStreamReader isr = new InputStreamReader(fis);
             
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block

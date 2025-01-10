@@ -237,11 +237,12 @@ public class App {
                 porto.stampaListaBarche();
                 
             } else if(scelta == 10) {
-                
+                // Salvare il porto su file
                 porto.salvaSuFile();
 
             } else if(scelta == 11) {
-                // Salva su file porto.por
+                // Carico da file
+                porto.caricaDaFile();
             }
 
 
