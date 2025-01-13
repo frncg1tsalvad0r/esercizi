@@ -6,6 +6,8 @@ import java.time.LocalDate;
 public class Principale {
     public static void main(String[] args) throws Exception {
         APCisco apCisco = new APCisco(30);
+        /* 
+        
         Switch s1 = new Switch("2960", 1200, LocalDate.of(2024, 10, 10), 3);
         Switch s2 = new Switch("2960", 500, LocalDate.of(2024, 10, 10), 1);
         Switch s3 = new Switch("c2950", 1000, LocalDate.of(2023, 10, 10), 3);
@@ -26,6 +28,9 @@ public class Principale {
         System.out.println("-------------------");
         System.out.println(apCisco.listaOggettiInGaranzia());
         apCisco.salvasuFile();
+
+        */
+        apCisco.caricaDaFile();
 
     }
 }

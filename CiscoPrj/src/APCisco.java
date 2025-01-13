@@ -1,13 +1,11 @@
-import java.io.BufferedReader;
-import java.io.File;
+
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.time.LocalDate;
+import java.util.Scanner;
 
 /**
  * Classe che gestisce il contenitore degli switch
@@ -182,45 +180,55 @@ public class APCisco {
      * Salva i dati su file in formati CSV
      */
     public void salvasuFile() {
-        File f = new File("apcisco.csv");
-
         try {
-
-           // FileOutputStream fos = new FileOutputStream("apcisco.csv");
-            FileOutputStream fos = new FileOutputStream(f);
+            FileOutputStream fos = new FileOutputStream("switches.csv");
             PrintStream ps = new PrintStream(fos);
-
-            for(int i = 0; i < this.switches.length; i++) {
+            
+            for(int i = 0; i < switches.length; i++) {
                 if(switches[i] != null) {
-                    String riga = "";
-                    riga = i + "," +
-                            switches[i].getModello()+ "," +
-                          switches[i].getPrezzo() + "," +
-                          switches[i].getDataDiAcquisto() + "," +
-                          switches[i].getAnniDiGaranzia();
-                    ps.println(riga);
-
+                    String s = 
+                            i + "," +
+                            switches[i].getModello() + "," +
+                            switches[i].getPrezzo() + "," + 
+                            switches[i].getDataDiAcquisto() + "," +
+                            switches[i].getAnniDiGaranzia();
+                    ps.println(s);
                 }
             }
-            
 
 
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        } catch(Exception e) {
+            System.out.println("Errore nella scrittura del file");
         }
 
     }
 
     public void caricaDaFile() {
-        File f = new File("apcisco.csv");
-        try {
-            FileInputStream fis = new FileInputStream(f);
-            InputStreamReader isr = new InputStreamReader(fis);
+        Scanner sc = null;
+        try (FileInputStream fis = new FileInputStream("switches.csv")) {
+            for(int i = 0; i < switches.length; i++) {
+                switches[i] = null;
+            }
             
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            sc = new Scanner(fis);
+            while(sc.hasNextLine()) {
+                String linea = sc.nextLine();
+                String[] campi = linea.split(",");
+                String modello = campi[1];
+                double prezzo = Double.parseDouble(campi[2]);
+                LocalDate dataDiAcquisto = LocalDate.parse(campi[3]);
+                int anniDiGaranzia = Integer.parseInt(campi[4]);
+                Switch s = new Switch(modello, prezzo, dataDiAcquisto, anniDiGaranzia);
+                switches[Integer.parseInt(campi[0])] = s;
+            }
+            
+        } catch (Exception e) {
+    
+            System.out.println("EECCEZIONE");
+        } finally {
+            sc.close();
+            System.out.println("FINALLy");
         }
+
     }
 }
