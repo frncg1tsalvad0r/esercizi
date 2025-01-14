@@ -1,13 +1,17 @@
+import java.util.ArrayList;
+
 public class App {
     public static void main(String[] args) throws Exception {
+        ArrayList al = new ArrayList();
+        al.size();
         ArrayVariabileInt av = new ArrayVariabileInt();
-        av.append(1);
-        av.append(2);
-        av.append(33);
-        av.append(66);
-        av.append(66);
-        av.append(88);
-        av.append(11);
+        av.add(1);
+        av.add(2);
+        av.add(33);
+        av.add(66);
+        av.add(66);
+        av.add(88);
+        av.add(11);
 
 
         System.out.println(av);

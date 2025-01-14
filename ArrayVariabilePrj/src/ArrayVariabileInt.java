@@ -28,7 +28,7 @@ public class ArrayVariabileInt
      * Ritorna la lunghezza dell'array
      * @return
      */
-    public int length() {
+    public int size() {
         return lunghezza;
     }
 
@@ -47,7 +47,7 @@ public class ArrayVariabileInt
     /**
      * Aggiunge un valore in coda all'array
      */
-    public void append(int valore) {
+    public void add(int valore) {
         arrayInt[lunghezza] = valore;
         lunghezza++;
 
