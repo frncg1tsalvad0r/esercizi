@@ -218,6 +218,7 @@ public class Porto {
      * Carica da file
      */
     public void caricaDaFile() {
+        Scanner sc = null;
         try {// Salva su file porto.por
 
             // Pulisco il porto
@@ -225,7 +226,7 @@ public class Porto {
                 barche[i] = null;
             }
             FileInputStream fis = new FileInputStream("porto.csv");
-            Scanner sc = new Scanner(fis);
+            sc = new Scanner(fis);
             while(sc.hasNextLine()) {
                 String barcaFormatoStringaCSV = sc.nextLine();
                 String[] campi = barcaFormatoStringaCSV.split(",");
@@ -245,7 +246,10 @@ public class Porto {
             // TODO Auto-generated catch block
             e.printStackTrace();
             return;
-        }
+        } finally {
+            // Chiudo il file
+            sc.close();
+        }   
 
         System.out.println("File caricato con successo!");
     }
