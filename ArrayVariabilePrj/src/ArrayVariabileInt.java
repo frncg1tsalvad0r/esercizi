@@ -85,7 +85,7 @@ public class ArrayVariabileInt
         this.lunghezza = 0;
     }
 
-    public int add(int index, int dato) {
+    public void add(int index, int dato) {
         if(index < 0 || index > lunghezza) {
             throw new RuntimeException();
         }
@@ -106,6 +106,7 @@ public class ArrayVariabileInt
 
         array[index] = dato;
         lunghezza++;
+
     }
 
     /**

@@ -2,7 +2,8 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws Exception {
-
+        ArrayList al = new ArrayList();
+        al.add(al);
         ArrayVariabileInt av = new ArrayVariabileInt();
         av.add(1);
         av.add(2);
@@ -11,6 +12,7 @@ public class App {
         av.add(66);
         av.add(88);
         av.add(11);
+        av.add(0, 0);
 
         System.out.println(av);
 
