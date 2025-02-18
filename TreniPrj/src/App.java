@@ -11,6 +11,13 @@ public class App {
 
         System.out.println(treno.toString());
         System.out.println("Peso complessivo treno: "  + treno.getPesoComplessivo());
+
+        Merci m2 = new Merci(6, 200000, "ATALA", 2024, 100, 120000, 300000);
+        treno.inserisciVagone(0, m2);
+        System.out.println(treno.toString());
+
+        treno.rimuoviVagone(1);
+        System.out.println(treno.toString());
     }
 }
 

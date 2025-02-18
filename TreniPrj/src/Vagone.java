@@ -28,7 +28,6 @@ abstract public class Vagone {
 
     abstract public String getFigurina();
 
-    
     abstract public double getPesoEffettivo();
     
 }
