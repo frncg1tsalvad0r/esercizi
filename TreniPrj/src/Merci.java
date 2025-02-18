@@ -27,7 +27,7 @@ public class Merci extends Vagone {
     }
 
     @Override
-    public double getPesoEffettivo() {// TODO Auto-generated method stub
+    public double getPesoEffettivo() {
         return this.pesoEffettivoCarico;
     }
 }
