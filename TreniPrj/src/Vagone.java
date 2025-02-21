@@ -26,6 +26,8 @@ abstract public class Vagone {
                 + ", annoDiCostruzione=" + annoDiCostruzione + "]";
     }
 
+    abstract public String toCSV();
+    
     abstract public String getFigurina();
 
     abstract public double getPesoEffettivo();

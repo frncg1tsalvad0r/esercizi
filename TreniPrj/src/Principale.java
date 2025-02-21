@@ -6,6 +6,7 @@ public class Principale {
         System.out.println("0) Esci");
         System.out.println("1) Visualizza Treno");
         System.out.println("2) Aggingi Vagone in posizione");
+        System.out.println("3) Salva");
         System.out.println("**********************");
 
     }
@@ -75,7 +76,10 @@ public class Principale {
                             System.out.println("tipo di treno non contemplato");
                         }
                         break;
-                }
+                    case 3:
+                        treno.salvaSuFile();
+                        break;
+                }   
                 /*
                 if(opzione == 0) {
                     // Esco

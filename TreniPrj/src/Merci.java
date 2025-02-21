@@ -30,4 +30,16 @@ public class Merci extends Vagone {
     public double getPesoEffettivo() {
         return this.pesoEffettivoCarico + this.pesoAVuoto;
     }
+
+    @Override
+    public String toCSV(){
+        return "Merci;" 
+            + this.codice + ";" 
+            + this.pesoAVuoto + ";" 
+            + this.aziendaCostruttrice + ";" 
+            + this.annoDiCostruzione + ";" 
+            + this.volumeDiCarico + ";" 
+            + this.pesoEffettivoCarico + ";" 
+            + this.pesoMassimoCarico;
+    }
 }

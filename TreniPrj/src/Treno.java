@@ -1,3 +1,8 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+
 public class Treno {
     Vagone[] vagoni;
     protected int numeroVagoni;
@@ -96,7 +101,65 @@ public class Treno {
         return rimosso;
     }
 
-    void salvaSuFile() {
-        //TODO: da implementare
+    /**
+     * Svuota il treno dai vagoni
+     */
+    public void clear() {
+        this.numeroVagoni = 0;
+    }
+    public void salvaSuFile() {
+        File f = new File(".\\treno.csv");
+        try {
+            FileWriter fw = new FileWriter(f);
+
+            for(int i = 0; i < this.numeroVagoni; i++) {
+                fw.write(this.vagoni[i].toCSV() + "\n");
+            }
+            fw.close();
+        } catch (Exception e) {
+            System.out.println("Eccezione");
+        }
+       
+    }
+
+    public void caricaDaFile() {
+
+        this.clear();
+        File f = new File(".\\treno.csv");
+        try {
+            FileReader fr = new FileReader(f);
+            BufferedReader br = new BufferedReader(fr);
+            String riga = "";
+            riga = br.readLine();
+            while(riga != null) {
+                String[] campi = riga.split(";");
+                if(campi[0].equals("Merci")) {
+                    Merci m = new Merci(Integer.parseInt(campi[1]), 
+                                        Double.parseDouble(campi[2]), 
+                                        campi[3], 
+                                        Integer.parseInt(campi[4]), 
+                                        Double.parseDouble(campi[5]), 
+                                        Double.parseDouble(campi[6]), 
+                                        Double.parseDouble(campi[7]));
+                    this.aggiugiVagone(m);
+                } else if(campi[0].equals("Passeggeri")) {
+                    Passeggeri p = new Passeggeri(Integer.parseInt(campi[1]), 
+                                        Double.parseDouble(campi[2]), 
+                                        campi[3], 
+                                        Integer.parseInt(campi[4]), 
+                                        Integer.parseInt(campi[5]), 
+                                        Integer.parseInt(campi[6]), 
+                                        Integer.parseInt(campi[7]));
+                    this.aggiugiVagone(p);
+                }
+
+                riga = br.readLine();
+            }
+            
+            br.close();
+        } catch (Exception e) {
+            System.out.println("Eccezione");
+        }
+       
     }
 }

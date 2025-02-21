@@ -33,4 +33,16 @@ public class Passeggeri extends Vagone {
         
         return this.pesoAVuoto + this.numeroPostiOccupati*65;
     }
+
+    @Override
+    public String toCSV() {
+        return "Passeggeri;" 
+            + this.codice + ";" 
+            + this.pesoAVuoto + ";" 
+            + this.aziendaCostruttrice + ";" 
+            + this.annoDiCostruzione + ";" 
+            + this.classe + ";" 
+            + this.numeroPostiDisponibili + ";" 
+            + this.numeroPostiOccupati;
+    }
 }
