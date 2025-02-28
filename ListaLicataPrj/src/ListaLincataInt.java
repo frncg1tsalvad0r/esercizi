@@ -163,7 +163,41 @@ public class ListaLincataInt {
      * @return
      */
     public int get(int posizione) {
+        int conta = 0;
+        Nodo corrente = this.testa;
+        
+        
+        while(true) {
+            if(corrente == null)
+                throw new RuntimeException();
+
+            if(conta == posizione) {
+                return corrente.valore;
+            }
+            corrente = corrente.successivo;
+            conta++;
+            
+        }
+
+    }
+
+    /**
+     * Rimuove un nodo dalla lista  nella posizione indicata e restituisce il 
+     * valore del nodo
+     * @param posizione
+     * @return valore alla posisione indicata
+     */
+    public int remove(int posizione) {
         return 0;
+    }
+
+    /**
+     * Aggiunge un nodo nella posizone indicata con il valore passato come parametro
+     * @param posizione
+     * @param valore
+     */
+    public void add(int posizione, int valore) {
+
     }
 
 

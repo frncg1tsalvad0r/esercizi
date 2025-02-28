@@ -1,6 +1,7 @@
 
 public class App {
     public static void main(String[] args) throws Exception {
+
         /*
         ll.size(); // dimensione della lista
         ll.get(int indice); 
@@ -26,5 +27,13 @@ public class App {
         System.out.println("Rimosso l'elemento in coda");
         System.out.println(lii.toString());
 
+        System.out.println("Posizione 0");
+        System.out.println(lii.get(0));
+
+        System.out.println("Posizione 1");
+        System.out.println(lii.get(1));
+
+        System.out.println("Posizione 2");
+        System.out.println(lii.get(2));
     }
 }
