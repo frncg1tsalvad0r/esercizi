@@ -3,13 +3,13 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         /*
-        ll.size(); // dimensione della lista
-        ll.get(int indice); 
-        ll.remove(indice):
-        ll.addFirst(ll);
-        ll.addLast();
-        ll.toString();
-        */
+         * ll.size(); // dimensione della lista
+         * ll.get(int indice);
+         * ll.remove(indice):
+         * ll.addFirst(ll);
+         * ll.addLast();
+         * ll.toString();
+         */
         ListaLincataInt lii = new ListaLincataInt();
         lii.addFirst(15);
         lii.addFirst(20);
@@ -33,7 +33,34 @@ public class App {
         System.out.println("Posizione 1");
         System.out.println(lii.get(1));
 
-        System.out.println("Posizione 2");
-        System.out.println(lii.get(2));
+        /*
+         * Questo lancerebbe un'eccezione perchè sforo la dimensione della lista
+         * System.out.println("Posizione 2");
+         * System.out.println(lii.get(2));
+         */
+
+        System.out.println("Aggiungi 10 alla fine");
+        lii.addLast(10);
+        System.out.println(lii.toString());
+
+        System.out.println("Rimuovi l'elemento nella posizione 2");
+        System.out.println(lii.remove(2));
+
+        System.out.println("Aggiungi 33 alla fine");
+        lii.addLast(33);
+        System.out.println(lii.toString());
+
+        System.out.println("Rimuovi l'elemento nella posizione 1");
+        System.out.println(lii.remove(1));
+        System.out.println(lii.toString());
+
+        System.out.println("Aggiungi 44 alla fine");
+        lii.addLast(44);
+        System.out.println(lii.toString());
+        
+
+        System.out.println("Rimuovi l'elemento nella posizione 0");
+        System.out.println(lii.remove(0));
+        System.out.println(lii.toString());
     }
 }

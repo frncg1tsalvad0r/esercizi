@@ -188,7 +188,32 @@ public class ListaLincataInt {
      * @return valore alla posisione indicata
      */
     public int remove(int posizione) {
-        return 0;
+
+        if (this.testa == null)
+            throw new RuntimeException();
+        
+        if(posizione == 0) {
+            int tmp = this.testa.valore;
+            this.testa = this.testa.successivo;
+            return tmp;
+        }
+
+        Nodo prima = this.testa;
+        int indice = 1;
+        while(true) {
+            if(prima.successivo == null)
+                throw new RuntimeException();
+
+            if(posizione == indice) {
+                int tmp = prima.successivo.valore;
+                prima.successivo = prima.successivo.successivo;
+                return tmp;
+            }
+            prima = prima.successivo;
+            indice++;
+        }
+
+
     }
 
     /**
