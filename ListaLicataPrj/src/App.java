@@ -45,6 +45,7 @@ public class App {
 
         System.out.println("Rimuovi l'elemento nella posizione 2");
         System.out.println(lii.remove(2));
+        System.out.println(lii.toString());
 
         System.out.println("Aggiungi 33 alla fine");
         lii.addLast(33);
@@ -62,5 +63,7 @@ public class App {
         System.out.println("Rimuovi l'elemento nella posizione 0");
         System.out.println(lii.remove(0));
         System.out.println(lii.toString());
+
+        lii.remove(5);
     }
 }

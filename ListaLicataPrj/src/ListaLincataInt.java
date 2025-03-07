@@ -181,6 +181,7 @@ public class ListaLincataInt {
 
     }
 
+    
     /**
      * Rimuove un nodo dalla lista  nella posizione indicata e restituisce il 
      * valore del nodo
@@ -223,6 +224,13 @@ public class ListaLincataInt {
      */
     public void add(int posizione, int valore) {
 
+        // Aggiungo in testa
+        if(posizione == 0) {
+            Nodo nuovo = new Nodo();
+            nuovo.valore = valore;
+            nuovo.successivo = testa;
+            testa = nuovo;
+        }
     }
 
 
