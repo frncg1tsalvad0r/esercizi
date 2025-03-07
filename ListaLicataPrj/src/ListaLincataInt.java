@@ -196,6 +196,7 @@ public class ListaLincataInt {
         if(posizione == 0) {
             int tmp = this.testa.valore;
             this.testa = this.testa.successivo;
+            this.contaNodi--;
             return tmp;
         }
 
@@ -208,12 +209,13 @@ public class ListaLincataInt {
             if(posizione == indice) {
                 int tmp = prima.successivo.valore;
                 prima.successivo = prima.successivo.successivo;
+                this.contaNodi--;
                 return tmp;
             }
             prima = prima.successivo;
             indice++;
         }
-
+        
 
     }
 
@@ -224,12 +226,34 @@ public class ListaLincataInt {
      */
     public void add(int posizione, int valore) {
 
+        if (posizione < 0 || posizione > size())
+            throw new RuntimeException();
+
         // Aggiungo in testa
         if(posizione == 0) {
             Nodo nuovo = new Nodo();
             nuovo.valore = valore;
             nuovo.successivo = testa;
             testa = nuovo;
+            this.contaNodi++;
+            return;
+        }
+
+        Nodo corrente = testa;
+        int i = 1;
+        // Caso generale
+        while(true) {
+            if(posizione == i) {
+                Nodo nuovo = new Nodo();
+                nuovo.valore = valore;
+                nuovo.successivo = corrente.successivo;
+                corrente.successivo = nuovo;
+
+                this.contaNodi++;
+                return;
+            }
+            i++;
+            corrente = corrente.successivo;
         }
     }
 

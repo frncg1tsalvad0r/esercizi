@@ -63,7 +63,26 @@ public class App {
         System.out.println("Rimuovi l'elemento nella posizione 0");
         System.out.println(lii.remove(0));
         System.out.println(lii.toString());
+        
 
-        lii.remove(5);
+        System.out.println("Inserisci un elemento nella posizione 0");
+        lii.add(0, 555);
+        System.out.println(lii.toString());
+
+        System.out.println("Inserisci un elemento nella posizione 1");
+        lii.add(1, 111);
+        System.out.println(lii.toString());
+
+        System.out.println("Inserisci un elemento nella posizione 2");
+        lii.add(2, 222);
+        System.out.println(lii.toString());
+
+        System.out.println("Inserisci un elemento nella posizione 4");
+        lii.add(4, 333);
+        System.out.println(lii.toString());
+
+        System.out.println("Inserisci un elemento nella posizione 6 ovvero in coda");
+        lii.add(6, 888);
+        System.out.println(lii.toString());
     }
 }
