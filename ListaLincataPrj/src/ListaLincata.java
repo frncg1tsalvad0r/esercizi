@@ -1,8 +1,8 @@
-public class ListaLincataInt {
-    private Nodo testa = null;
+public class ListaLincata<T> {
+    private Nodo<T> testa = null;
     private int contaNodi;
     
-    public ListaLincataInt() {
+    public ListaLincata() {
         this.testa = null;
         this.contaNodi = 0;
     }
@@ -11,8 +11,8 @@ public class ListaLincataInt {
      * Inserisce un elemento in testa alla lista lincata
      * @param dato
      */
-    public void addFirst(int dato){
-        Nodo nuovo = new Nodo();
+    public void addFirst(T dato){
+        Nodo<T> nuovo = new Nodo<>();
         nuovo.valore = dato;
         nuovo.successivo = testa;
         testa = nuovo;
@@ -23,7 +23,7 @@ public class ListaLincataInt {
     @Override
     public String toString() {
         String s = "";
-        Nodo corrente = this.testa;
+        Nodo<T> corrente = this.testa;
 
         while(true) {
             if(corrente == null)
@@ -54,7 +54,7 @@ public class ListaLincataInt {
         return this.contaNodi;
          */
         int conta = 0;
-        Nodo corrente = null;
+        Nodo<T> corrente = null;
         corrente = this.testa;
         
         
@@ -72,15 +72,15 @@ public class ListaLincataInt {
      * Aggiunge un elemento in coda alla lista
      * @param dato
      */
-    void addLast(int dato) {
-        Nodo nuovo = new Nodo();
+    void addLast(T dato) {
+        Nodo<T> nuovo = new Nodo<>();
         nuovo.valore = dato;
         nuovo.successivo = null;
 
         if(this.testa == null){
             this.testa = nuovo;
         } else {
-            Nodo corrente = this.testa;
+            Nodo<T> corrente = this.testa;
             while(true){
                 if(corrente.successivo == null)
                     break;
@@ -95,13 +95,13 @@ public class ListaLincataInt {
      * Rimuovere l'elemento in testa alla lista
      * @return
      */
-    public int removeFirst() {
+    public Object removeFirst() {
         if(this.testa == null) {
             // la lista è vuota e decido cosa fare
             throw new RuntimeException("Lista vuota");
 
         }
-        int tmp =this.testa.valore;
+        Object tmp =this.testa.valore;
         this.testa = this.testa.successivo;
         this.contaNodi--;
         return tmp;
@@ -112,7 +112,7 @@ public class ListaLincataInt {
      * Rimuove l'elemento in coda alla lista lincata
      * @return
      */
-    public int removeLast() {
+    public Object removeLast() {
         if(this.testa == null) {
             // la lista è vuota e decido cosa fare
             throw new RuntimeException("Lista vuota");
@@ -123,7 +123,7 @@ public class ListaLincataInt {
 
         if(this.testa.successivo == null) {
             // Sono nel caso in cui ho un sol valore
-            int tmp =  this.testa.valore;
+            Object tmp =  this.testa.valore;
             this.testa = null;
             return tmp;
         } 
@@ -143,12 +143,12 @@ public class ListaLincataInt {
         */
 
         
-        Nodo corrente = this.testa;
+        Nodo<T> corrente = this.testa;
         while(corrente.successivo.successivo != null) {
             corrente = corrente.successivo;
         }
         //Punta al penultimo
-        int tmp = corrente.successivo.valore;
+        Object tmp = corrente.successivo.valore;
         corrente.successivo = null;
         this.contaNodi--;
         return tmp;
@@ -162,9 +162,9 @@ public class ListaLincataInt {
      * @param posizione
      * @return
      */
-    public int get(int posizione) {
+    public T get(int posizione) {
         int conta = 0;
-        Nodo corrente = this.testa;
+        Nodo<T> corrente = this.testa;
         
         
         while(true) {
@@ -188,26 +188,26 @@ public class ListaLincataInt {
      * @param posizione
      * @return valore alla posisione indicata
      */
-    public int remove(int posizione) {
+    public Object remove(int posizione) {
 
         if (this.testa == null)
             throw new RuntimeException();
         
         if(posizione == 0) {
-            int tmp = this.testa.valore;
+            Object tmp = this.testa.valore;
             this.testa = this.testa.successivo;
             this.contaNodi--;
             return tmp;
         }
 
-        Nodo prima = this.testa;
+        Nodo<T> prima = this.testa;
         int indice = 1;
         while(true) {
             if(prima.successivo == null)
                 throw new RuntimeException();
 
             if(posizione == indice) {
-                int tmp = prima.successivo.valore;
+                Object tmp = prima.successivo.valore;
                 prima.successivo = prima.successivo.successivo;
                 this.contaNodi--;
                 return tmp;
@@ -224,14 +224,14 @@ public class ListaLincataInt {
      * @param posizione
      * @param valore
      */
-    public void add(int posizione, int valore) {
+    public void add(int posizione, T valore) {
 
         if (posizione < 0 || posizione > size())
             throw new RuntimeException();
 
         // Aggiungo in testa
         if(posizione == 0) {
-            Nodo nuovo = new Nodo();
+            Nodo<T> nuovo = new Nodo<>();
             nuovo.valore = valore;
             nuovo.successivo = testa;
             testa = nuovo;
@@ -239,12 +239,12 @@ public class ListaLincataInt {
             return;
         }
 
-        Nodo corrente = testa;
+        Nodo<T> corrente = testa;
         int i = 1;
         // Caso generale
         while(true) {
             if(posizione == i) {
-                Nodo nuovo = new Nodo();
+                Nodo<T> nuovo = new Nodo<T>();
                 nuovo.valore = valore;
                 nuovo.successivo = corrente.successivo;
                 corrente.successivo = nuovo;
@@ -256,7 +256,5 @@ public class ListaLincataInt {
             corrente = corrente.successivo;
         }
     }
-
-
     
 }

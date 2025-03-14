@@ -1,8 +1,13 @@
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
         /*
+         * L'ArrayList è una classe nativa Java
+         * molto utilizzata. Nella nostra progettazione
+         * ne faremo con un'interfaccia simile 
+         * che 
          * ll.size(); // dimensione della lista
          * ll.get(int indice);
          * ll.remove(indice):
@@ -10,6 +15,10 @@ public class App {
          * ll.addLast();
          * ll.toString();
          */
+        ArrayList<String> al = new ArrayList<>();
+        al.add("Ciao");
+
+
         ListaLincataInt lii = new ListaLincataInt();
         lii.addFirst(15);
         lii.addFirst(20);
