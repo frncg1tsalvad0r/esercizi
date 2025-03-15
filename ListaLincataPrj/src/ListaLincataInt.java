@@ -257,6 +257,12 @@ public class ListaLincataInt {
         }
     }
 
+    public void push(int valore) {
+        addLast(valore);
+    }
 
-    
+    public int pop() {
+        return removeLast();
+    }
+
 }

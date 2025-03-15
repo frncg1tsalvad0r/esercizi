@@ -1,8 +1,12 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
+        Queue q = new LinkedList();
+        Deque d = new LinkedList();
         /*
          * L'ArrayList è una classe nativa Java
          * molto utilizzata. Nella nostra progettazione
