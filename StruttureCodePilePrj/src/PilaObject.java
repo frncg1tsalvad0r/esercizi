@@ -1,15 +1,15 @@
-public class PilaInt {
+public class PilaObject {
     
-    private int[] contenitore=new int[10];
+    private Object[] contenitore=new Object[10];
     
     private int top=0;
 
-    public PilaInt(){
+    public PilaObject(){
 
     }
 
     /** Inserisdci un elemento in cima alla pila */
-    public void push(int valore){
+    public void push(Object valore){
         contenitore[top]=valore;
         top++;
     }
@@ -18,7 +18,7 @@ public class PilaInt {
      * Estrae l'elemento dalla cima
      * @return
      */
-    public int pop(){
+    public Object pop(){
         top--;
         return contenitore[top];
     }
