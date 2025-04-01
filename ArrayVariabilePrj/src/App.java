@@ -1,8 +1,25 @@
 import java.util.ArrayList;
 
+
 public class App {
     public static void main(String[] args) throws Exception {
         
+        ArrayList<String> al = new ArrayList<>();
+        al.add("alfa");
+        al.add("beta");
+        al.add("gamma");
+
+
+        /*
+        System.out.println(puntatore.next());
+        System.out.println(puntatore.next());
+        System.out.println(puntatore.next());
+        */
+
+        for (String e : al) {
+            System.out.println(e);
+        }
+        /* 
         ArrayVariabileInt av = new ArrayVariabileInt();
         av.add(1);
         av.add(2);
@@ -45,5 +62,6 @@ public class App {
         alng.add("Due;");
 
         String k = (String)alng.get(0);
+        */
     }
 }
