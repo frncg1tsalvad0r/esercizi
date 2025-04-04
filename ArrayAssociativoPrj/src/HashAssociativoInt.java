@@ -43,9 +43,35 @@ public class HashAssociativoInt {
     public void put(String chiave, int valore) {
 
         int posizione = hash(chiave);
+        
+        int corrente = posizione;
 
-        this.chiavi[posizione] = chiave;
-        this.valori[posizione] = valore;
+        // La chiave esiste ma non è la stessa
+        // nella posizione corrente può esserci un valore diverso da null con valore !=
+        // da quello cercato
+        // Può esserci un valore null
+        while(true) {
+            if(chiavi[corrente] != null && chiavi[corrente].equals(chiave)) {
+                // La chiave esiste ed è la stessa
+                this.valori[corrente] = valore;
+                return;
+    
+            }
+
+            if(this.chiavi[corrente] == null) {
+                this.chiavi[corrente] = chiave;
+                this.valori[corrente] = valore;
+                return;
+            }
+
+            // Banalmente aumente l'indice e se esso sfora la dimensione dell'array
+            // prendo il modulo dell'indice ovvero riparto da 0
+            corrente++;
+            corrente = corrente % this.chiavi.length;
+            if(corrente == posizione)
+                throw new RuntimeException();
+        }
+
      }
 
     /**
@@ -58,7 +84,22 @@ public class HashAssociativoInt {
 
         int posizione = hash(chiave);
 
-        return this.valori[posizione];
+        int corrente = posizione;
+
+        while(true) {
+            if(this.chiavi[corrente] != null && this.chiavi[corrente].equals(chiave)) {
+                return this.valori[corrente];
+
+            }
+
+            // Banalmente aumente l'indice e se esso sfora la dimensione dell'array
+            // prendo il modulo dell'indice ovvero riparto da 0
+            corrente++;
+            corrente = corrente % this.chiavi.length;
+            if(corrente == posizione)
+                throw new RuntimeException();
+        }
+
 
     }
 
