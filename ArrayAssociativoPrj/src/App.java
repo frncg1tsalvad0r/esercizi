@@ -1,7 +1,10 @@
+import java.util.HashMap;
 import java.util.Hashtable;
 
-public class App {
+public class App extends Object {
     public static void main(String[] args) throws Exception {
+
+
         /*
         // Prova l'array associativo triviale
         ArrayAssociativoInt asi = new ArrayAssociativoInt(10);
