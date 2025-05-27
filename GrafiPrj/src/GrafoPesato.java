@@ -1,5 +1,9 @@
+import java.io.File;
+import java.util.Scanner;
+
 public class GrafoPesato {
     private int matrice[][];
+    
     
     /**
      * Costruttore 
@@ -42,12 +46,13 @@ public class GrafoPesato {
         int k = 0;
         for(int j = 0; j < matrice[nodo].length; j++) {
             if( matrice[nodo][j] != -1) {
-                adiacenze[k] = matrice[nodo][j];
+                adiacenze[k] = j;
                 k++;
             }
         }
         return adiacenze;
     }
+
 
     /**
      * Stampa il grafo delle adiacenze
@@ -58,6 +63,35 @@ public class GrafoPesato {
                 System.out.print(matrice[i][j] + " ") ;
             }
             System.out.println();
+        }
+    }
+
+    public int numeroNodi() {
+        return this.matrice[0].length;
+    }
+
+    public void carica() {
+        File f = new File("./grafo.txt");
+        try (Scanner sc = new  Scanner(f)) {
+            int N = 0;
+            if(sc.hasNextInt()) {
+                N = sc.nextInt();
+            } 
+
+            this.matrice = new int[N][N];
+            for(int i = 0; i < N; i++) {
+                for(int j = 0; j < N; j++) {
+                    this.matrice[i][j]= -1;
+                }
+            }
+            for(int i = 0; i < N; i++) {
+                int nodo1 = sc.nextInt();
+                int nodo2 = sc.nextInt();
+                this.addArco(nodo1, nodo2, 1);
+            }
+        } catch (Exception e) {
+
+            e.printStackTrace();
         }
     }
 }
